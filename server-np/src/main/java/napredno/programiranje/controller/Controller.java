@@ -3,6 +3,7 @@ package napredno.programiranje.controller;
 import java.util.List;
 
 import javafx.util.Pair;
+import napredno.programiranje.domain.City;
 import napredno.programiranje.domain.Customer;
 import napredno.programiranje.domain.GenericEntity;
 import napredno.programiranje.domain.Invoice;
@@ -11,6 +12,7 @@ import napredno.programiranje.domain.InvoiceReceptionType;
 import napredno.programiranje.domain.Product;
 import napredno.programiranje.domain.User;
 import napredno.programiranje.operation.AbstractGenericOperation;
+import napredno.programiranje.operation.city.GetAllCities;
 import napredno.programiranje.operation.customer.AddCustomer;
 import napredno.programiranje.operation.customer.DeleteCustomer;
 import napredno.programiranje.operation.customer.EditCustomer;
@@ -161,5 +163,11 @@ public class Controller {
         AbstractGenericOperation operation = new GetAllInvoiceItems();
         operation.execute(new InvoiceItem());
         return ((GetAllInvoiceItems) operation).getInvoiceItems();
+    }
+    
+    public List<GenericEntity> getAllCities() throws Exception {
+        AbstractGenericOperation operation  = new GetAllCities();
+        operation.execute(new City());
+        return ((GetAllCities) operation).getCities();
     }
 }

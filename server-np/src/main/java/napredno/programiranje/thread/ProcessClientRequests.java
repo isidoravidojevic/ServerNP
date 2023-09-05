@@ -11,6 +11,7 @@ import napredno.programiranje.communication.Request;
 import napredno.programiranje.communication.Response;
 import napredno.programiranje.communication.Sender;
 import napredno.programiranje.controller.Controller;
+import napredno.programiranje.domain.City;
 import napredno.programiranje.domain.Customer;
 import napredno.programiranje.domain.GenericEntity;
 import napredno.programiranje.domain.Invoice;
@@ -125,6 +126,10 @@ public class ProcessClientRequests extends Thread {
                             InvoiceReceptionType invoiceTypeInsert = (InvoiceReceptionType) request.getArgument();
                             response = new Response(Controller.getInstance().addInvoiceReceptionType(invoiceTypeInsert), null);
                             break;
+                        case GET_ALL_CITIES:
+                        	List<GenericEntity> cities = Controller.getInstance().getAllCities();
+                        	response = new Response(cities, null);
+                        	break;
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
