@@ -9,6 +9,7 @@ import napredno.programiranje.domain.GenericEntity;
 import napredno.programiranje.domain.Invoice;
 import napredno.programiranje.domain.InvoiceItem;
 import napredno.programiranje.domain.InvoiceReceptionType;
+import napredno.programiranje.domain.Producer;
 import napredno.programiranje.domain.Product;
 import napredno.programiranje.domain.User;
 import napredno.programiranje.operation.AbstractGenericOperation;
@@ -25,6 +26,7 @@ import napredno.programiranje.operation.invoiceitem.AddInvoiceItem;
 import napredno.programiranje.operation.invoiceitem.GetAllInvoiceItems;
 import napredno.programiranje.operation.invoiceitem.GetAllInvoiceItemsParameter;
 import napredno.programiranje.operation.invoicereceptiontype.AddInvoiceReceptionType;
+import napredno.programiranje.operation.producer.GetAllProducers;
 import napredno.programiranje.operation.product.AddProduct;
 import napredno.programiranje.operation.product.DeleteProduct;
 import napredno.programiranje.operation.product.EditProduct;
@@ -169,5 +171,11 @@ public class Controller {
         AbstractGenericOperation operation  = new GetAllCities();
         operation.execute(new City());
         return ((GetAllCities) operation).getCities();
+    }
+    
+    public List<GenericEntity> getAllProducers() throws Exception {
+        AbstractGenericOperation operation  = new GetAllProducers();
+        operation.execute(new Producer());
+        return ((GetAllProducers) operation).getProducers();
     }
 }

@@ -130,6 +130,10 @@ public class ProcessClientRequests extends Thread {
                         	List<GenericEntity> cities = Controller.getInstance().getAllCities();
                         	response = new Response(cities, null);
                         	break;
+                        case GET_ALL_PRODUCERS:
+                        	List<GenericEntity> producers = Controller.getInstance().getAllProducers();
+                        	response = new Response(producers, null);
+                        	break;
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
