@@ -40,7 +40,7 @@ public abstract class AbstractGenericOperation {
             executeOperation(param);
             commit();
         } catch (Exception ex) {
-            ex.printStackTrace();
+            //ex.printStackTrace();
             rollback();
             throw ex;
         } finally {

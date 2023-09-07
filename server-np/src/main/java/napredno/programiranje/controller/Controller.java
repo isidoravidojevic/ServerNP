@@ -59,7 +59,7 @@ public class Controller {
         List<User> users = ((Login) operation).getUsers();
         for (User user : users) {
             if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
-                System.out.println("User found!");
+//                System.out.println("User found!");
                 return user;
             }
         }

@@ -30,7 +30,7 @@ public class RepositoryDbGeneric implements DbRepository<GenericEntity, Object>{
                     .append(param.getInsertValues())
                     .append(")");
             String sql = sb.toString();
-            System.out.println(sql);
+//            System.out.println(sql);
             statement.executeUpdate(sql, Statement.RETURN_GENERATED_KEYS);
             ResultSet rsKeys = statement.getGeneratedKeys();
             long id = -1;
@@ -56,14 +56,14 @@ public class RepositoryDbGeneric implements DbRepository<GenericEntity, Object>{
         sb.append("SELECT * FROM ").append(param.getTableName()).append(param.getJoinText());
         
         String sql = sb.toString();
-        System.out.println(sql);
+//        System.out.println(sql);
         ResultSet rs = statement.executeQuery(sql);
         int i = 0;
         while (rs.next()) {
-            System.out.println("int i:" + ++i);
+//            System.out.println("int i:" + ++i);
             generics.add(param.getEntity(rs));
         }
-        System.out.println("repository.db.impl.DbRepositoryGeneric.getAll() list:" + generics);
+//        System.out.println("repository.db.impl.DbRepositoryGeneric.getAll() list:" + generics);
         statement.close();
         return generics;
     }
@@ -78,7 +78,7 @@ public class RepositoryDbGeneric implements DbRepository<GenericEntity, Object>{
             
             sb.append("UPDATE ").append(param.getTableName()).append(" SET ").append(param.getUpdateValues()).append(" WHERE ").append(param.getID());
             String sql = sb.toString();
-            System.out.println(sql);
+//            System.out.println(sql);
             int number = statement.executeUpdate(sql);
 
             statement.close();
@@ -99,7 +99,7 @@ public class RepositoryDbGeneric implements DbRepository<GenericEntity, Object>{
             
             sb.append("DELETE FROM ").append(param.getTableName()).append(" WHERE ").append(param.getID());
             String sql = sb.toString();
-            System.out.println(sql);
+//            System.out.println(sql);
             int number = statement.executeUpdate(sql);
 
             statement.close();
@@ -119,7 +119,7 @@ public class RepositoryDbGeneric implements DbRepository<GenericEntity, Object>{
         StringBuilder sb = new StringBuilder();
         sb.append("SELECT * FROM ").append(param.getTableName()).append(param.getJoinText()).append(" WHERE ").append(param.getID());
         String sql = sb.toString();
-        System.out.println(sql);
+//        System.out.println(sql);
         ResultSet rs = statement.executeQuery(sql);
         while (rs.next()) {
             genericEntity = param.getEntity(rs);
@@ -141,14 +141,14 @@ public class RepositoryDbGeneric implements DbRepository<GenericEntity, Object>{
                 .append(param.getJoinText()).append(" WHERE ")
                 .append(p.getKey()).append("=").append(p.getValue());
         String sql = sb.toString();
-        System.out.println("repository.db.impl.DbRepositoryGeneric.getAllByCriteria(), sql je:" + sql);
+//        System.out.println("repository.db.impl.DbRepositoryGeneric.getAllByCriteria(), sql je:" + sql);
         ResultSet rs = statement.executeQuery(sql);
         int i = 0;
         while (rs.next()) {
             System.out.println("int i:" + ++i);
             generics.add(param.getEntity(rs));
         }
-        System.out.println("repository.db.impl.DbRepositoryGeneric.getAllByCriteria(), lista je:" + generics);
+//        System.out.println("repository.db.impl.DbRepositoryGeneric.getAllByCriteria(), lista je:" + generics);
         statement.close();
         return generics;
     }
